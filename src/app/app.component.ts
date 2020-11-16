@@ -4,7 +4,7 @@ import { AuthenticationService } from './authentication.service';
     @Component({
     selector: 'app-root',
     template: `
-    <h1>custom structural directive isLogged</h1>
+        <h1>custom structural directive isLogged</h1>
         <div *appIsLogged #il="isLogged">
             <button (click)="authService.logout()">Logout</button>
         </div>
