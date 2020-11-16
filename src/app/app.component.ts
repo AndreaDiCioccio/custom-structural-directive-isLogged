@@ -11,9 +11,7 @@ import { AuthenticationService } from './authentication.service';
         <div *ngIf="!il.isLogged">
             <button (click)="authService.login('paperino')">Login</button>
         </div>
-    `,
-    styleUrls: ['./app.component.css']
-})
+    `})
 export class AppComponent {
 
     constructor(public authService:AuthenticationService) {}
