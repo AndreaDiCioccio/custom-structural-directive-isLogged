@@ -5,11 +5,12 @@ import { AuthenticationService } from './authentication.service';
     selector: 'app-root',
     template: `
         <h1>custom structural directive isLogged</h1>
-        <div *appIsLogged #il="isLogged">
+        <div *appIsLogged>
             <button (click)="authService.logout()">Logout</button>
+            <h3>user: {{authService.user$ | async}}</h3>
         </div>
-        <div *ngIf="!il.isLogged">
-            <button (click)="authService.login('paperino')">Login</button>
+        <div *appIsNotLogged>
+            <button (click)="authService.login()">Login</button>
         </div>
     `
     })

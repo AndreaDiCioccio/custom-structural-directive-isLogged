@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { IsLoggedDirective } from './is-logged.directive';
+import { IsNotLoggedDirective } from './is-not-logged.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IsLoggedDirective
+    IsLoggedDirective,
+    IsNotLoggedDirective
   ],
   imports: [
     BrowserModule

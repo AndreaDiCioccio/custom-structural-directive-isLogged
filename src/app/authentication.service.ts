@@ -9,8 +9,8 @@ export class AuthenticationService {
 
     user$:BehaviorSubject<string> = new BehaviorSubject(null)
 
-    login(username:string): void{
-        username === 'paperino' ? this.user$.next('paperino') : null
+    login(): void{
+        this.user$.next('paperino')
     }
 
     logout(): void {
@@ -18,7 +18,6 @@ export class AuthenticationService {
     }
 
     get isLogged$(): Observable<Boolean> {
-        console.log('get isLogged$')
         return this.user$.pipe( 
             map( user => user && !!user)
         )

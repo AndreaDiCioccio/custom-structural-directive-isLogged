@@ -1,11 +1,11 @@
+import { Directive, OnDestroy, OnInit, ViewContainerRef, TemplateRef } from '@angular/core';
+import { Subject } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
-import { Directive, OnInit, ViewContainerRef, TemplateRef, OnDestroy } from '@angular/core';
-import { Subject, of } from 'rxjs';
 
 @Directive({
-    selector: '[appIsLogged]'
+    selector: '[appIsNotLogged]'
 })
-export class IsLoggedDirective implements OnInit, OnDestroy{
+export class IsNotLoggedDirective implements OnInit, OnDestroy{
 
     unsubscribe:Subject<boolean>
 
@@ -15,7 +15,7 @@ export class IsLoggedDirective implements OnInit, OnDestroy{
 
     ngOnInit(): void {
         this.authService.isLogged$.subscribe( (isLogged:boolean) => {
-            isLogged ? this.view.createEmbeddedView(this.template) : this.view.clear()
+            !isLogged ? this.view.createEmbeddedView(this.template) : this.view.clear()
         })
     }
 
